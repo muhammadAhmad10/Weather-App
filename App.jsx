@@ -14,15 +14,16 @@ export default function App() {
 
         <NavigationContainer>
             <LinearGradient 
-            colors={['#220c5e', '#0f2b63', '#04134a']} 
+            colors={['#220c5e', '#0f2b63', 'red']} 
             style={{ flex: 1, }} start={{ x: 0, y: 0 }} 
         >
             <Stack.Navigator
+                
                 screenOptions={{headerBackgroundContainerStyle:{backgroundColor:'transparent'}}}
             >
                 <Stack.Screen name='FrontPage' component={FrontPage} options={{headerShown:false}} />
                 <Stack.Screen name='Main' component={Main}  options={{headerShown:false}} />
-                <Stack.Screen name='Search' component={Search} options={{headerShown:false}} />
+                <Stack.Screen name='Search' component={Search}  options={{headerShown:false}} />
             </Stack.Navigator>
             </LinearGradient>
 

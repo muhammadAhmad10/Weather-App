@@ -6,10 +6,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Geolocation from '@react-native-community/geolocation';
 
-export default function Main({navigation}) {
-    const [currentTemp,currentWind,currentHumidity,description,chancesOfRain,city,country,day,date,month,icon,getWeather] = getCurrentWeather("");
+
+export default function Main({navigation,route}) {
+    const [currentTemp,currentWind,currentHumidity,description,chancesOfRain,city,country,day,date,month,icon,getWeather] = getCurrentWeather('');
     const [todayTemp,todayWeather] = getTodayWeather('');
     const [weeklyData, weeklyWeather] = getWeeklyWeather('')
     const [today, setToday] = useState(true);
@@ -23,6 +25,7 @@ export default function Main({navigation}) {
     useEffect(()=>{
         getWeather()
         todayWeather()
+
     },[])
 
 

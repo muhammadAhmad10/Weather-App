@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export const getCurrentWeather = (initialValue) => {
+    // const latitude = AsyncStorage.getItem('latitude');
+    // const longitude = AsyncStorage.getItem('longitude')
     const [currentTemp, setCurrentTemp] = useState(initialValue);
     const [currentWind, setCurrentWind] = useState(initialValue);
     const [currentHumidity, setCurrentHumidity] = useState(initialValue);
@@ -18,6 +22,9 @@ export const getCurrentWeather = (initialValue) => {
         const city = 'Lahore';
         const lat = '31.561920';
         const lon = '74.348083'
+        // const latitude = initialValue.latitude
+        // const longitude = initialValue.longitude
+        // console.log(latitude)
         const apiKey = 'c2356a5bb8124c69961161330231502'
         axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=1&aqi=no&alerts=yes`)
             .then(response => {
